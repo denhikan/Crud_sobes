@@ -1,0 +1,73 @@
+{% extends "crud_app/base.html" %}
+
+{% block title %}
+    Список сотрудников
+{% endblock title %}
+{% block content %}
+
+
+
+<div class="align-search">
+    <form method="get">
+        <t>ФИО сотрудника: {{myFilter.form.name}}</t>
+        <t>Отдел: {{myFilter.form.department}}</t>
+        <t>Дата с: {{myFilter.form.start_date}}</t>
+        <t>Дата по: {{myFilter.form.end_date}}</t>
+        <button>Искать</button>
+    </form>
+</div>
+
+<table class="table" style="margin: auto;">
+    <thead>
+        <tr>
+            <div class="style_table">
+            <td>ID</td>
+            <td>ФИО сотрудника</td>
+            <td>Отдел</td>
+            <td>Дата и время создания</td>
+           {% if request.user.is_staff %}
+                <td>
+                <a href="{% url 'staff_create' %}" class="btn btn-outline-sucess">
+                    <button class="button_create">
+                        <i>Добавить</i>
+                    </button>
+                </a>
+            </td>
+           {% endif %}
+                </div>
+        </tr>
+    </thead>
+
+<tbody>
+{% for data in dataset %}
+    <tr>
+        <td><a href="{% url 'staff_read' data.id %}">{{data.id}}</a></td>
+        <td><a href="{% url 'staff_read' data.id %}">{{data.name}}</a></td>
+        <td>{{data.department}}</td>
+        <td>{{data.register_date}}</td>
+{% if request.user.is_staff %}
+        <td>
+            <a href="{% url 'staff_update' data.id %}">
+                <button class="button_update">
+                    <i>Редактировать данные</i>
+                </button>
+            </a>
+        </td>
+        <td>
+            <form action="{% url 'staff_delete' data.id %}" method="post" class="d-inline">
+            {% csrf_token %}
+                <button class="button_delete">
+                    <i>УДАЛИТЬ</i>
+                </button>
+            </form>
+        </td>
+    {% endif %}
+    </tr>
+
+{% endfor %}
+</tbody>
+</table>
+
+    {% include "crud_app/components/paginator.html" %}
+
+{% endblock content %}

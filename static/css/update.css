@@ -1,0 +1,25 @@
+.button_update1
+{
+    width: 130px;
+    height: 45px;
+    background: #F1AF05;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 13px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0.5px #000;
+    border: none;
+    cursor: pointer;
+}
+.container_update
+{
+    display: flex;
+    justify-content: center;
+}
+.align_button_update
+{
+    text-align: center;
+}

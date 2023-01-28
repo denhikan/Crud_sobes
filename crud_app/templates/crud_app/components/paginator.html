@@ -1,0 +1,49 @@
+{% load static %}
+
+{% if dataset.has_other_pages %}
+<div class="pagination">
+        <!--Кнопка назад-->
+        {% if dataset.has_previous %}
+                   <div class="paginator-next">
+                           <a href="?page={{ dataset.previous_page_number }}">
+                           ПРЕДЫДУЩАЯ СТРАНИЦА
+                       </a>
+                   </div>
+    {% else %}
+                   <div class="paginator-next paginator-next-gree">
+                           <a>
+                           <strike>ПРЕДЫДУЩАЯ СТРАНИЦА</strike>
+                       </a>
+                   </div>
+
+        <!--Оформление нумерации-->
+        {% endif %}
+        {% for p in dataset.paginator.page_range %}
+        {% if dataset.number == p %}
+        <div class="paginator-counter">
+            <span class="paginator-number">{{ p }}</span>
+
+
+        {% if dataset.paginator.num_pages %}
+        <span class="paginator-number">{{dataset.paginator.num_pages}}</span>
+        {% endif %}
+</div>
+        {% endif %}
+        {% endfor %}
+        <!--Кнопка вперёд-->
+        {% if dataset.has_next %}
+
+        <div class="paginator-next">
+            <a href="?page={{ dataset.next_page_number }}">
+                СЛЕДУЮЩАЯ СТРАНИЦА
+            </a>
+        </div>
+    {% else %}
+            <div class="paginator-next">
+            <a>
+                <strike>СЛЕДУЮЩАЯ СТРАНИЦА</strike>
+            </a>
+        </div>
+{% endif %}
+</div>
+{% endif %}

@@ -1,0 +1,15 @@
+{% extends "crud_app/base.html" %}
+{% block title %}
+    Добавление сотрудника
+{% endblock title %}
+{% block content %}
+<div class="create_container">
+<form method = "post">
+    {% csrf_token %}
+    <p>Укажите ФИО сотрудника: {{ form.name }}</p>
+    <p>Выберите отдел в котором работает сотрудник: {{ form.department}}</p>
+    <p>Укажите время создания записи: {{ form.register_date }}</p>
+    <div class="button_align_create"><input type = "submit" value = "Создать" class="button_create"></div>
+</form>
+    </div>
+{% endblock content %}

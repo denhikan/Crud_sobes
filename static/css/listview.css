@@ -1,0 +1,64 @@
+.table td
+{
+    padding-right: 30px;
+}
+.button_update
+{
+    width: 140px;
+    height: 35px;
+    background: #F1AF05;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 13px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0.5px #000;
+    border: none;
+    cursor: pointer;
+}
+
+.button_create
+{
+    width: 140px;
+    height: 35px;
+    background: #44944A;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 13px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0.5px #000;
+    border: none;
+    cursor: pointer;
+}
+
+.button_delete
+{
+    width: 100px;
+    height: 35px;
+    background: #FF2400;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-style: italic;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 13px;
+    color: #FFFFFF;
+    text-shadow: 1px 1px 0.5px #000;
+    border: none;
+    cursor: pointer;
+}
+
+tbody a {
+    text-decoration: none;
+    color: black;
+}
+
+.table td
+{
+font-size: 20px;
+}

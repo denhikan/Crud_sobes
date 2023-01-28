@@ -1,0 +1,26 @@
+{% load static %}
+
+<header class="container">
+
+</div>
+    <div class="button-navbar">
+        <li class="li-button-navbar">
+            <a class="a-navbar a-navbar-button" href="/">Главная</a>
+        </li>
+
+        <ul class="topmenu li-button-navbar">
+            <li>
+            <ul class="submenu">
+                {% if request.user.is_authenticated %}
+                <li class="name-person">{{user.username}}</a></li>
+                <li><a href="{% url 'logout' %}">Выйти</a></li>
+                        {% else %}
+                <li><a href="{% url 'login' %}">Войти</a></li>
+                <li><a href="{% url 'staff_register' %}">Зарегистрироваться</a></li>
+                {% endif %}
+            </ul>
+          </li>
+        </ul>
+
+    </div>
+</header>

@@ -1,0 +1,11 @@
+.container_detalview
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.align-search
+{
+    margin-left: 13%;
+}

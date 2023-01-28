@@ -1,0 +1,44 @@
+
+{% extends "crud_app/base.html" %}
+{% block title %}
+    Регистрация
+{% endblock title %}
+{% block content %}
+
+<div style="min-height: 58%">
+    <div class="flex-login">
+        <div class="modal grid1">
+            {% if request.user.is_authenticated %}
+            <div class="modal__div">
+                <h1 class="modal__title" id="building-name">Вы залогинины!</h1>
+                <form>
+                    <p class="p-login">Вы можете вернуться к списку сотрудников</p>
+                    <button class="button-login"><a href="{% url 'listview' %}">Вернуться</a></button>
+                </form>
+            </div>
+            {% else %}
+
+
+
+            <div class="modal__div">
+                <form method="POST" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="form-error">{{ form.non_field_errors }}</div>
+                    {% for f in form %}
+                    <p><label class="form-label" for="{{ f.id_for_label }}"></label>{{ f }}</p>
+                    <div class="form-error">{{ f.errors }}</div>
+                    {% endfor %}
+                    <button type="submit" class="button-login"><a>Зарегистрироваться</a></button>
+                    <div class="a-registration">
+                        <t>Есть аккаунт?<a href="{% url 'login' %}" class="field-registration">
+                            Войдите</t>
+                    </div>
+                    </a>
+                </form>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
